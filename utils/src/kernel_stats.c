@@ -31,7 +31,7 @@ void print_timestep(uint8_t type, double collected_time) {
       printf("[PI-INFO] PI avg,%i,%f,%d\n", rank, pi_sum/current_iteration, current_iteration);
       break;
     case PRINT_BETA:
-      printf("[PI-INFO] Beta,%i,%f\n", rank, ((collected_time - end_time) + (init_time - begin_time))/pi_sum);
+      printf("[PI-INFO] Beta,%i,%f\n", rank, ((collected_time - end_time) + (begin_time - init_time))/pi_sum);
   }
 }
 
