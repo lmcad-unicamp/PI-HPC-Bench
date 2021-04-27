@@ -23,7 +23,7 @@ double first_begin_time;
 double end_time;
 double pi_sum;
 double pi;
-bool early_stop = true;
+bool early_stop = false;
 
 double get_current_time();
 int get_iteration_();
