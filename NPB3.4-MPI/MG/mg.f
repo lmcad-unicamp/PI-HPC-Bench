@@ -82,6 +82,22 @@ c---------------------------------------------------------------------------c
      >            'interp', 'norm2u3', 'comm3', 'rcomm',
      >            ' totcomp', ' totcomm'/
 
+      character(len=100) arg1
+      character(len=100) arg2
+      
+      integer value_r, parse_init
+
+      if(command_argument_count() == 2) then
+        call get_command_argument(1, arg1)
+        call get_command_argument(2, arg2)
+
+        value_r = parse_init(arg1, arg2)
+
+        if(value_r /= -1) then
+          call set_early_stop(value_r)
+        endif
+      endif
+
       call init_timestep()
 
       call mpi_init(ierr)

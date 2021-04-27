@@ -303,6 +303,9 @@ extern void init_timestep_();
 extern void begin_timestep_();
 extern void end_timestep_();
 
+extern signed int parse_init_(char*, char*);
+extern void set_early_stop_(int*);
+
 /***********************/
 /* function prototypes */
 /***********************/
@@ -943,6 +946,13 @@ int main( int argc, char **argv )
     int             i, iteration, itemp, np;
 
     double          timecounter, maxtime;
+
+    if(argc == 3) {
+        signed int value_r = parse_init_(argv[1], argv[2]);
+
+        if(value_r != -1)
+            set_early_stop_(&value_r);
+    }
 
     init_timestep_();
 
