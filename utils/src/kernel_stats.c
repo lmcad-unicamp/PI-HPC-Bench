@@ -49,12 +49,10 @@ void begin_timestep_() {
   begin_time = get_current_time();
 
   if(current_iteration == 0) {
-    double current_time = get_current_time();
+    double current_time = begin_time;
     print_timestep(PRINT_INIT, current_time);
 
     first_begin_time = begin_time;
-    if(stop_in == 0)
-      my_exit();
   }else {
     pi = end_time - old_begin_time;
     pi += begin_time - end_time;
@@ -90,6 +88,5 @@ void my_exit() {
     exit_timestep_();
     MPI_Finalize();
     exit(0);
-    //MPI_Abort(MPI_COMM_WORLD, 0);
   }
 }
