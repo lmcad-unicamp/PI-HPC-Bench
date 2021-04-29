@@ -79,6 +79,7 @@ void exit_timestep_() {
   }
 
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
   if(rank == 0)
     print_timestep(PRINT_EXIT, current_time);
 }
