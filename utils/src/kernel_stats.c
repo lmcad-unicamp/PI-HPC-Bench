@@ -12,7 +12,7 @@ double get_current_time() {
     return ((double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
 }
 
-void print_timestep(uint8_t type, double collected_time) {
+void print_timestep(uint8_t type, double collected_time, struct rusage* resource, IFStats_t* network) {
   int rank;
 
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -23,6 +23,8 @@ void print_timestep(uint8_t type, double collected_time) {
       break;
     case PRINT_STATS:
       printf("[PI-INFO] Paramount Iteration,%i,%i,%f,%f\n", rank, current_iteration, collected_time - init_time, pi);
+      print_resources(rank, current_iteration, resource);
+      print_network(rank, current_iteration, network);
       break;
     case PRINT_EXIT:
       printf("[PI-INFO] Total time,%f\n", collected_time - init_time);
@@ -35,9 +37,59 @@ void print_timestep(uint8_t type, double collected_time) {
   }
 }
 
+void print_resources(int rank, int current_iteration, struct rusage *stats) {
+  printf("[RU-INFO] Resources Stats,%i,", rank);
+  printf("%i,", current_iteration);
+  printf("%f,", ((double)stats->ru_utime.tv_sec + (double)stats->ru_utime.tv_usec*1.e-6));
+  printf("%f,", ((double)stats->ru_stime.tv_sec + (double)stats->ru_stime.tv_usec*1.e-6));
+  printf("%ld,", stats->ru_maxrss);
+  printf("%ld,", stats->ru_ixrss);
+  printf("%ld,", stats->ru_idrss);
+  printf("%ld,", stats->ru_isrss);
+  printf("%ld,", stats->ru_minflt);
+  printf("%ld,", stats->ru_majflt);
+  printf("%ld,", stats->ru_nswap);
+  printf("%ld,", stats->ru_inblock);
+  printf("%ld,", stats->ru_oublock);
+  printf("%ld,", stats->ru_msgsnd);
+  printf("%ld,", stats->ru_msgrcv);
+  printf("%ld,", stats->ru_nsignals);
+  printf("%ld,", stats->ru_nvcsw);
+  printf("%ld\n", stats->ru_nivcsw);
+}
+
+void print_network(int rank, int current_iteration, IFStats_t* stats) {
+  while(stats != NULL) {
+    printf("[NT-INFO] Network Stats,%i,", rank);
+    printf("%i,", current_iteration);
+    printf("%s,", stats->device);
+    printf("%llu,", stats->rxBytes);
+    printf("%llu,", stats->rxPackets);
+    printf("%llu,", stats->rxErrors);
+    printf("%llu,", stats->rxDrop);
+    printf("%llu,", stats->rxFifo);
+    printf("%llu,", stats->rxFrame);
+    printf("%llu,", stats->rxCompressed);
+    printf("%llu,", stats->rxMulticast);
+    printf("%llu,", stats->txBytes);
+    printf("%llu,", stats->txPackets);
+    printf("%llu,", stats->txErrors);
+    printf("%llu,", stats->txDrop);
+    printf("%llu,", stats->txFifo);
+    printf("%llu,", stats->txCollisions);
+    printf("%llu,", stats->txCarrier);
+    printf("%llu\n", stats->txCompressed);
+    stats = stats->next;
+  }
+}
+
 void init_timestep_() {
-  current_iteration = 0;
   init_time = get_current_time();
+
+  current_iteration = 0;
+  total_time = 0;
+
+  my_rusage = (struct rusage*) malloc(sizeof(struct rusage));
 }
 
 void end_timestep_() {
@@ -46,18 +98,20 @@ void end_timestep_() {
 
 void begin_timestep_() {
   double old_begin_time = begin_time;
+
   begin_time = get_current_time();
+  getrusage(RUSAGE_SELF, my_rusage);
+  IFStats_t* network_stats = getIfStats();
 
   if(current_iteration == 0) {
-    double current_time = begin_time;
-    print_timestep(PRINT_INIT, current_time);
-
     first_begin_time = begin_time;
+    print_timestep(PRINT_INIT, begin_time, NULL, NULL);
   }else {
     pi = end_time - old_begin_time;
     pi += begin_time - end_time;
     pi_sum += pi;
-    print_timestep(PRINT_STATS, begin_time);
+
+    print_timestep(PRINT_STATS, begin_time, my_rusage, network_stats);
   }
 
   my_exit();
@@ -74,14 +128,14 @@ void exit_timestep_() {
   double current_time = get_current_time();
 
   if(current_iteration > 0) {
-    print_timestep(PRINT_AVG, 0);
-    print_timestep(PRINT_BETA, current_time);
+    print_timestep(PRINT_AVG, 0, NULL, NULL);
+    print_timestep(PRINT_BETA, current_time, NULL, NULL);
   }
 
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
   if(rank == 0)
-    print_timestep(PRINT_EXIT, current_time);
+    print_timestep(PRINT_EXIT, current_time, NULL, NULL);
 }
 
 void my_exit() {

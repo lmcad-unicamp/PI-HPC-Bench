@@ -53,7 +53,7 @@ FFLAGS	= -O3
 # size usually go here. 
 #---------------------------------------------------------------------------
 FLINKFLAGS = $(FFLAGS)
-FLINKFLAGS = $(FFLAGS) -O ../../utils/obj/kernel_stats.o  ../../utils/obj/arg_parse.o
+FLINKFLAGS = $(FFLAGS) -O ../../utils/obj/*.o
 
 #---------------------------------------------------------------------------
 # Parallel C:
@@ -99,7 +99,7 @@ CFLAGS	= -O3
 # size usually go here. 
 #---------------------------------------------------------------------------
 # CLINKFLAGS = $(CFLAGS)
-CLINKFLAGS = $(CFLAGS) -O ../../utils/obj/kernel_stats.o ../../utils/obj/arg_parse.o
+CLINKFLAGS = $(CFLAGS) -O ../../utils/obj/*.o
 
 #---------------------------------------------------------------------------
 # MPI dummy library:

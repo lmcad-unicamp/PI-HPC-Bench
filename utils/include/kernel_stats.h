@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <inttypes.h>
 #include <stdlib.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 
 #define PRINT_INIT 1
 #define PRINT_STATS 2
@@ -15,7 +17,12 @@
 
 typedef enum {false, true} bool;
 
+#include "ifstats.h"
+
+struct rusage *my_rusage;
+
 int stop_in = 15;
+long total_time;
 unsigned int current_iteration;
 double init_time;
 double begin_time;
@@ -32,8 +39,11 @@ void end_timestep_();
 void begin_timestep_();
 void exit_timestep_();
 void my_exit();
-void set_early_stop_(int* number);
+void set_early_stop_(int*);
 void debug_();
+void print_timestep(uint8_t, double, struct rusage*, IFStats_t*);
+void print_resources(int, int, struct rusage*);
+void print_network(int, int, IFStats_t*);
 
 #endif
 
