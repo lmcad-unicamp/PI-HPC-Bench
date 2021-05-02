@@ -1,3 +1,6 @@
 [submodule "ASC-Proxy-Apps"]
 	path = ASC-Proxy-Apps
 	url = https://github.com/thaisacs/ASC-Proxy-Apps
+[submodule "ECP-Proxy-Apps"]
+	path = ECP-Proxy-Apps
+	url = https://github.com/thaisacs/ECP-Proxy-Apps.git
