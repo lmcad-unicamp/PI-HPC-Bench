@@ -483,7 +483,7 @@ namd2:	$(MKINCDIR) $(MKDSTDIR) $(OBJS) $(LIBS)
 	$(LEPTONOBJS) \
 	$(CHARMOPTS) \
 	$(EXTRALINKLIBS) \
-	$(MATHLIBS) ../../utils/obj/kernel_stats.o ../../utils/obj/arg_parse.o -o namd2
+	$(MATHLIBS) ../../utils/obj/*.o -o namd2
 
 charmrun: $(CHARM)/bin/charmrun # XXX
 	$(COPY) $(CHARM)/bin/charmrun $@
@@ -517,7 +517,7 @@ namd2.exe:  $(MKINCDIR) $(MKDSTDIR) $(OBJS) $(LIBS) $(TCLDLL)
 	$(COLVARSLIB) \
 	$(LEPTONOBJS) \
 	$(CHARMOPTS) \
-	-o  ../../utils/obj/kernel_stats.o ../../utils/obj/arg_parse.o namd2
+	-o  ../../utils/obj/*.o namd2
 
 charmd.exe:
 	$(COPY) $(CHARM)/bin/charmd.exe charmd.exe
