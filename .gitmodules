@@ -4,3 +4,6 @@
 [submodule "ECP-Proxy-Apps"]
 	path = ECP-Proxy-Apps
 	url = https://github.com/thaisacs/ECP-Proxy-Apps.git
+[submodule "lammps"]
+	path = lammps
+	url = https://github.com/thaisacs/lammps.git
