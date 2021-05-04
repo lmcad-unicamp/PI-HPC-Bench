@@ -10,3 +10,4 @@ rm -rf Linux-x86_64-g++
 sudo rm -rf fftw
 rm -rf tcl8.5.9-linux-x86_64-threaded
 rm -rf tcl8.5.9-linux-x86_64
+rm input/apoa1/FFTW_NAMD_2.14_Linux-x86_64-MPI.txt
