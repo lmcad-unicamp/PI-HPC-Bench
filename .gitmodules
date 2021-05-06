@@ -7,3 +7,6 @@
 [submodule "lammps"]
 	path = lammps
 	url = https://github.com/thaisacs/lammps.git
+[submodule "ExaML"]
+	path = ExaML
+	url = https://github.com/thaisacs/ExaML.git
