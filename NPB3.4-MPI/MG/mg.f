@@ -315,6 +315,7 @@ c---------------------------------------------------------------------
 
          call end_timestep()
       enddo
+      call after_timestep()
 
 
       call norm2u3(r,n1,n2,n3,rnm2,rnmu,nx(lt),ny(lt),nz(lt))

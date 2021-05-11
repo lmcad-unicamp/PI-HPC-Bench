@@ -254,6 +254,7 @@ c---------------------------------------------------------------------
           endif
           call end_timestep()
        end do
+       call after_timestep()
 
        call timer_start(2)
        call btio_cleanup

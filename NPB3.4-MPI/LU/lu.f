@@ -215,6 +215,7 @@ c---------------------------------------------------------------------
             endif
             call end_timestep()
          end do
+         call after_timestep()
       endif
  800  format(' nprocs =', i6, 11x, 'minimum', 5x, 'maximum', 
      >       5x, 'average')

@@ -396,6 +396,7 @@ c---------------------------------------------------------------------
 
          call end_timestep()
       enddo                              ! end of main iter inv pow meth
+      call after_timestep()
 
       call timer_stop( 1 )
 

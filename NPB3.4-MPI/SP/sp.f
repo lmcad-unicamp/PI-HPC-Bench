@@ -200,6 +200,7 @@ c---------------------------------------------------------------------
 
           call end_timestep()
        end do
+       call after_timestep()
 
        call timer_stop(1)
        t = timer_read(1)

@@ -177,6 +177,7 @@ c---------------------------------------------------------------------
 
          call end_timestep()
       end do
+      call after_timestep()
 
       call verify(niter, verified, class)
       call timer_stop(t_total)

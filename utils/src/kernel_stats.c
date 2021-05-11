@@ -96,6 +96,10 @@ void end_timestep_() {
   end_time = get_current_time();
 }
 
+void after_timestep_() {
+  begin_timestep_();
+}
+
 void begin_timestep_() {
   double old_begin_time = begin_time;
 

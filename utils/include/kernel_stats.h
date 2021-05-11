@@ -38,6 +38,7 @@ void init_timestep_();
 void end_timestep_();
 void begin_timestep_();
 void exit_timestep_();
+void after_timestep_();
 void my_exit();
 void set_early_stop_(int*);
 void debug_();
