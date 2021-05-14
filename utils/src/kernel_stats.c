@@ -42,20 +42,20 @@ void print_resources(int rank, int current_iteration, struct rusage *stats) {
   printf("%i,", current_iteration);
   printf("%f,", ((double)stats->ru_utime.tv_sec + (double)stats->ru_utime.tv_usec*1.e-6));
   printf("%f,", ((double)stats->ru_stime.tv_sec + (double)stats->ru_stime.tv_usec*1.e-6));
-  printf("%ld,", stats->ru_maxrss);
-  printf("%ld,", stats->ru_ixrss);
-  printf("%ld,", stats->ru_idrss);
-  printf("%ld,", stats->ru_isrss);
-  printf("%ld,", stats->ru_minflt);
-  printf("%ld,", stats->ru_majflt);
-  printf("%ld,", stats->ru_nswap);
-  printf("%ld,", stats->ru_inblock);
-  printf("%ld,", stats->ru_oublock);
-  printf("%ld,", stats->ru_msgsnd);
-  printf("%ld,", stats->ru_msgrcv);
-  printf("%ld,", stats->ru_nsignals);
-  printf("%ld,", stats->ru_nvcsw);
-  printf("%ld\n", stats->ru_nivcsw);
+  printf("%ld,", stats->ru_maxrss);   /* maximum resident set size */
+  printf("%ld,", stats->ru_ixrss);    /* integral shared memory size */
+  printf("%ld,", stats->ru_idrss);    /* integral unshared data size */
+  printf("%ld,", stats->ru_isrss);    /* integral unshared stack size */
+  printf("%ld,", stats->ru_minflt);   /* page reclaims (soft page faults) */
+  printf("%ld,", stats->ru_majflt);   /* page faults (hard page faults) */
+  printf("%ld,", stats->ru_nswap);    /* swaps */
+  printf("%ld,", stats->ru_inblock);  /* block input operations */
+  printf("%ld,", stats->ru_oublock);  /* block output operations */
+  printf("%ld,", stats->ru_msgsnd);   /* IPC messages sent */
+  printf("%ld,", stats->ru_msgrcv);   /* IPC messages received */
+  printf("%ld,", stats->ru_nsignals); /* signals received */
+  printf("%ld,", stats->ru_nvcsw);    /* voluntary context switches */
+  printf("%ld\n", stats->ru_nivcsw);  /* involuntary context switches */
 }
 
 void print_network(int rank, int current_iteration, IFStats_t* stats) {
