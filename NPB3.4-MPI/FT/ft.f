@@ -198,6 +198,7 @@ c---------------------------------------------------------------------
      >     npbversion, compiletime, cs1, cs2, cs3, cs4, cs5, cs6, cs7)
       endif
       if (timers_enabled) call print_timers()
+      call exit_timestep()
       call MPI_Finalize(ierr)
       end
 
@@ -2131,8 +2132,6 @@ c---------------------------------------------------------------------
  2001       format(' Result verification failed')
          endif
       endif
-
-      call exit_timestep()
 
       return
       end

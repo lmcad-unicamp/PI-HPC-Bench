@@ -1199,6 +1199,7 @@ int main( int argc, char **argv )
     }
 #endif
 
+    exit_timestep_();
     MPI_Finalize();
 
 
