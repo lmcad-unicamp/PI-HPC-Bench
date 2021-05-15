@@ -303,6 +303,7 @@ extern void init_timestep_();
 extern void begin_timestep_();
 extern void end_timestep_();
 extern void after_timestep_();
+extern void exit_timestep_();
 
 extern signed int parse_init_(char*, char*);
 extern void set_early_stop_(int*);
