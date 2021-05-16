@@ -98,6 +98,7 @@ void end_timestep_() {
 
 void after_timestep_() {
   begin_timestep_();
+  current_iteration--;
 }
 
 void begin_timestep_() {

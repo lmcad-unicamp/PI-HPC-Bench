@@ -372,6 +372,7 @@ c        vectorizable.
  810  format(' timer ', i2, '(', A8, ') :', 3(2x,f10.4))
 
  999  continue
+      call exit_timestep()
       call mpi_finalize(ierr)
 
       end
