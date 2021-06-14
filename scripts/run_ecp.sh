@@ -27,6 +27,7 @@ git submodule foreach git pull origin master
 cd ECP-Proxy-Apps
 git submodule foreach git checkout master
 git submodule foreach git pull origin master
+cd ~
 # build ECP
 cd PI-HPC-Bench/utils
 make
