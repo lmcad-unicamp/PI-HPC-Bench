@@ -4,9 +4,9 @@ DATASET=$PWD/$1
 NAME=$(date +"%m-%d-%y-%T")
 mkdir $DATASET
 cd ../bin
-mpirun -n $2 --hostfile $HOSTFILE ./bt.C.x > $DATASET/$NAME-BT-C.out 2> $DATASET/$NAME-BT-C.err
-mpirun -n $2 --hostfile $HOSTFILE ./bt.D.x > $DATASET/$NAME-BT-D.out 2> $DATASET/$NAME-BT-D.err
-mpirun -n $2 --hostfile $HOSTFILE ./bt.E.x > $DATASET/$NAME-BT-E.out 2> $DATASET/$NAME-BT-E.err
+#mpirun -n $2 --hostfile $HOSTFILE ./bt.C.x > $DATASET/$NAME-BT-C.out 2> $DATASET/$NAME-BT-C.err
+#mpirun -n $2 --hostfile $HOSTFILE ./bt.D.x > $DATASET/$NAME-BT-D.out 2> $DATASET/$NAME-BT-D.err
+#mpirun -n $2 --hostfile $HOSTFILE ./bt.E.x > $DATASET/$NAME-BT-E.out 2> $DATASET/$NAME-BT-E.err
 mpirun -n $2 --hostfile $HOSTFILE ./cg.C.x > $DATASET/$NAME-CG-C.out 2> $DATASET/$NAME-CG-C.err
 mpirun -n $2 --hostfile $HOSTFILE ./cg.D.x > $DATASET/$NAME-CG-D.out 2> $DATASET/$NAME-CG-D.err
 mpirun -n $2 --hostfile $HOSTFILE ./cg.E.x > $DATASET/$NAME-CG-E.out 2> $DATASET/$NAME-CG-E.err
