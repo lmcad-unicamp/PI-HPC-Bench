@@ -46,10 +46,9 @@ for i in $(seq ${1} ${2})
 do
   echo "#############intance-$i##############"
   gcloud compute copy-files ~/.ssh/authorized_keys instance-$i:~/.ssh/ --zone=us-central1-a
-  gcloud compute copy-files ~/PI-HPC-Bench/utils instance-$i:~/ --zone=us-central1-a
   gcloud compute copy-files ~/PI-HPC-Bench/ECP-Proxy-Apps instance-$i:~/ --zone=us-central1-a
   gcloud compute copy-files ~/json-cwx instance-$i:~/ --zone=us-central1-a
   ssh instance-$i "cd json-cwx/json-cwx && sudo make install"
-  ssh instance-$i "mkdir PI-HPC-Bench && mv ECP-Proxy-Apps PI-HPC-Bench && mv utils PI-HPC-Bench"
+  ssh instance-$i "mkdir PI-HPC-Bench && mv ECP-Proxy-Apps PI-HPC-Bench"
   echo "#####################################"
 done

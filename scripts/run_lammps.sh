@@ -8,7 +8,7 @@ cd ~
 # build ECP
 cd PI-HPC-Bench/utils
 make
-cd ../ExaML/build_scripts
+cd ../lammps/build_scripts
 ./run_build.sh
 cd ~
 # send to all nodes
@@ -22,8 +22,8 @@ for i in $(seq ${1} ${2})
 do
   echo "#############intance-$i##############"
   gcloud compute copy-files ~/.ssh/authorized_keys instance-$i:~/.ssh/ --zone=us-central1-a
-  gcloud compute copy-files ~/PI-HPC-Bench/ExaML instance-$i:~/ --zone=us-central1-a
-  ssh instance-$i "mkdir PI-HPC-Bench && mv ExaML PI-HPC-Bench"
+  gcloud compute copy-files ~/PI-HPC-Bench/lammps instance-$i:~/ --zone=us-central1-a
+  ssh instance-$i "mkdir PI-HPC-Bench && mv lammps PI-HPC-Bench"
   ssh instance-$i "echo 'foi instance-$i'"
   echo "#####################################"
 done
