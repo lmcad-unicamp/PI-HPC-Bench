@@ -7,4 +7,5 @@ rm -fr gsl-2.6
 cd Gadget2
 rm -r galaxy
 rm -r gassphere
+rm parameterfiles/*.param-usedvalues
 make clean
