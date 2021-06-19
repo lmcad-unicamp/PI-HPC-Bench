@@ -10,6 +10,8 @@
 
 extern void begin_timestep_();
 extern void end_timestep_();
+extern void after_timestep_();
+
 /*! \file run.c
  *  \brief  iterates over timesteps, main loop
  */
@@ -33,7 +35,7 @@ void run(void)
 
   do				/* main loop */
     {
-			begin_timestep_();
+      begin_timestep_();
       t0 = second();
 
       find_next_sync_point_and_drift();	/* find next synchronization point and drift particles to this time.
@@ -132,10 +134,11 @@ void run(void)
       All.CPU_Total += timediff(t0, t1);
       CPUThisRun += timediff(t0, t1);
 
-			end_timestep_();
+      end_timestep_();
     }
   while(All.Ti_Current < TIMEBASE && All.Time <= All.TimeMax);
 
+  after_timestep_();
   restart(0);
 
   savepositions(All.SnapshotFileCount++);	/* write a last snapshot
