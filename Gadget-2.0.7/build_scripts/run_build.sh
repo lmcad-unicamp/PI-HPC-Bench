@@ -25,4 +25,4 @@ cd Gadget2
 make 
 mkdir galaxy
 mkdir gassphere
-PATH=$PATH:/home/$USER/Dev/test/PI-HPC-Bench/Gadget-2.0.7/fftw-2.1.5
+PATH=$PATH:/home/$USER/PI-HPC-Bench/Gadget-2.0.7/fftw-2.1.5
