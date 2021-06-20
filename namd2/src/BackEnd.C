@@ -278,6 +278,7 @@ void BackEnd::exit(int status) {
   CmiPrintf("====================================================\n\n"
 	    "WallClock: %f  CPUTime: %f  Memory: %f MB\n",
 	    wallTime, cpuTime, memusage_MB());
+  exit_timestep_();
 #ifdef NAMD_TCL
   Tcl_Finalize();
 #endif
@@ -304,7 +305,6 @@ void BackEnd::exit(int status) {
 #else
   CkExit(status);
 #endif
-  exit_timestep_();
 }
 
 // start scheduler

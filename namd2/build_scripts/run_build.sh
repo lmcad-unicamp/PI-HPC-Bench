@@ -19,5 +19,10 @@ make
 sudo make install
 cd ..
 ./config Linux-x86_64-g++ --charm-arch mpi-linux-x86_64
-#cd Linux-x86_64-g++
-#make -j 2
+export PATH=$PATH:${PWD}/charm-6.10.2.tar.gz
+cd Linux-x86_64-g++
+make
+cd ../input
+tar -xvf stmv.tar
+tar -xvf apoa1.tar
+tar -xvf f1atpase.tar

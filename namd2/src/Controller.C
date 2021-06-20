@@ -46,6 +46,7 @@
 extern "C" {
   void begin_timestep_();
   void end_timestep_();
+  void after_timestep_();
 }
 
 #if(CMK_CCS_AVAILABLE && CMK_WEB_MODE)
@@ -553,6 +554,7 @@ void Controller::integrate(int scriptTask) {
       end_timestep_();
     }
     // signal(SIGINT, oldhandler);
+    after_timestep_();
 }
 
 
