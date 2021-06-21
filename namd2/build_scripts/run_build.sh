@@ -7,7 +7,8 @@ tar xzf build_scripts/tars/tcl8.5.9-linux-x86_64.tar.gz
 tar xzf build_scripts/tars/tcl8.5.9-linux-x86_64-threaded.tar.gz
 mv tcl8.5.9-linux-x86_64 tcl
 mv tcl8.5.9-linux-x86_64-threaded tcl-threaded
-cd charm-v6.10.2
+mv charm-v6.10.2 charm-6.10.2
+cd charm-6.10.2
 env MPICXX=mpicxx ./build charm++ mpi-linux-x86_64 --with-production
 cd mpi-linux-x86_64/tests/charm++/megatest
 make pgm
@@ -19,10 +20,9 @@ make
 sudo make install
 cd ..
 ./config Linux-x86_64-g++ --charm-arch mpi-linux-x86_64
-export PATH=$PATH:${PWD}/charm-6.10.2.tar.gz
+export PATH=$PATH:${PWD}/charm-6.10.2
 cd Linux-x86_64-g++
 make
 cd ../input
-tar -xvf stmv.tar
 tar -xvf apoa1.tar
 tar -xvf f1atpase.tar
