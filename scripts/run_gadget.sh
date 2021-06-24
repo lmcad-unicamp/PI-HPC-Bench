@@ -24,6 +24,9 @@ do
   gcloud compute copy-files ~/.ssh/authorized_keys instance-$i:~/.ssh/ --zone=us-central1-a
   gcloud compute copy-files ~/PI-HPC-Bench/Gadget-2.0.7 instance-$i:~/ --zone=us-central1-a
   ssh instance-$i "mkdir PI-HPC-Bench && mv Gadget-2.0.7 PI-HPC-Bench"
+  ssh instance-$i "cd /home/$USER/PI-HPC-Bench/Gadget-2.0.7/fftw-2.1.5 && sudo make install"
+  ssh instance-$i "cd /home/$USER/PI-HPC-Bench/Gadget-2.0.7/hdf5-1.6.0 && sudo make install"
+  ssh instance-$i "PATH=$PATH:/home/$USER/PI-HPC-Bench/Gadget-2.0.7/fftw-2.1.5/mpi && PATH=$PATH:/home/$USER/PI-HPC-Bench/Gadget-2.0.7/hdf5-1.6.0"
   ssh instance-$i "echo 'foi instance-$i'"
   echo "#####################################"
 done
