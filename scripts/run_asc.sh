@@ -29,7 +29,6 @@ do
   echo "#############intance-$i##############"
   gcloud compute copy-files ~/.ssh/authorized_keys instance-$i:~/.ssh/ --zone=us-central1-a
   gcloud compute copy-files ~/PI-HPC-Bench/ASC-Proxy-Apps instance-$i:~/ --zone=us-central1-a
-  gcloud compute copy-files ~/json-cwx instance-$i:~/ --zone=us-central1-a
   ssh instance-$i "mkdir PI-HPC-Bench && mv ASC-Proxy-Apps PI-HPC-Bench"
   ssh instance-$i "echo 'foi instance-$i'"
   echo "#####################################"
