@@ -7,7 +7,7 @@ This is the High Performance Computing Benchmark with Paramount Iteration. This 
 * Applications from LLNL ASC Proxy Apps
 * Real applications (LAMMPS and ExaML)
 
-Our Paramount Iteration library source code is in /utils/ path.
+Our Paramount Iteration library source code is in /utils/ path. Every benchmark directory have a /exec_scripts/run_exec.sh file. This file is responsible for executing the applications of benchmark in question.
 
 ## LICENSE
 
