@@ -1,3 +1,3 @@
 # PI-HPC-Bench 
 
-Thi is The High Performance Computing Benchmark with Paramount Iteration.
+Thi is the High Performance Computing Benchmark with Paramount Iteration.
