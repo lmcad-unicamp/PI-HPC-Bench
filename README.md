@@ -1,13 +1,13 @@
 # PI-HPC-Bench 
 
-This is the High Performance Computing Benchmark with Paramount Iteration. This benchmaks contains the main benchmarks found in the literature. However, we instrumented the applications code with Paramount Iteration. This benchmarks constais the follows applications:
+This is the High Performance Computing Benchmark with Paramount Iterations. This benchmaks contains the main benchmarks found in the literature. However, we instrumented the applications code with Paramount Iterations. This benchmarks constais the follows applications:
 
 * Applications from NAS Parallel Benchmarks (NPB)
 * Applications from Exascale Proxy Applications (ECP Proxy Apps)
 * Applications from LLNL ASC Proxy Apps
 * Real applications (LAMMPS and ExaML)
 
-Our Paramount Iteration library source code is in /utils/ path. Every benchmark directory have a /exec_scripts/run_exec.sh file. This file is responsible for executing the applications of benchmark in question.
+Our Paramount Iterations library source code is in /utils/ path. Every benchmark directory have a /exec_scripts/run_exec.sh file. This file is responsible for executing the applications of benchmark in question.
 
 ## LICENSE
 
