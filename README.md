@@ -9,6 +9,10 @@ This is the High Performance Computing Benchmark with Paramount Iterations. This
 
 Our Paramount Iterations library source code is in /utils/ path. Every benchmark directory has a /exec_scripts/run_exec.sh file. This file is responsible for executing the applications of benchmark in question.
 
+## Citation
+
+CAMACHO, Thais Aparecida Silva. PB3Opt: uma estratégia para selecionar aglomerados de computadores na nuvem computacional para cargas computacionais de alto desempenho. 2022. 1 recurso online (96 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Instituto de Computação, Campinas, SP. Disponível em: https://hdl.handle.net/20.500.12733/3945.
+
 ## LICENSE
 
 This project is being developed at the Institute of Computing - Unicamp as part of @thaisacs master dissertation.
