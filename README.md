@@ -11,7 +11,20 @@ Our Paramount Iterations library source code is in /utils/ path. Every benchmark
 
 ## CITATION
 
-CAMACHO, Thais Aparecida Silva. PB3Opt: uma estratégia para selecionar aglomerados de computadores na nuvem computacional para cargas computacionais de alto desempenho. 2022. 1 recurso online (96 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Instituto de Computação, Campinas, SP. Disponível em: https://hdl.handle.net/20.500.12733/3945.
+
+```
+@article{2022,
+title={PB3Opt: Profile‐based biased Bayesian optimization to select computing clusters on the cloud},
+ISSN={1532-0634},
+url={http://dx.doi.org/10.1002/cpe.7540},
+DOI={10.1002/cpe.7540},
+journal={Concurrency and Computation: Practice and Experience},
+publisher={Wiley},
+author={Aparecida Silva Camacho, Thais and Martins do Rosario, Vanderson and Oliveira Napoli, Otávio and Borin, Edson},
+year={2022},
+month={Dec}
+}
+```
 
 ## LICENSE
 
