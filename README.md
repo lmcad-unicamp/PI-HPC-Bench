@@ -28,5 +28,5 @@ month={Dec}
 
 ## LICENSE
 
-This project is being developed at the Institute of Computing - Unicamp as part of [@thaisacs](https://github.com/thaisacs) master dissertation.
+This project was developed at the Institute of Computing - Unicamp as part of [@thaisacs](https://github.com/thaisacs) master dissertation.
 You are free to use this code under the [MIT LICENSE](https://choosealicense.com/licenses/mit/).
